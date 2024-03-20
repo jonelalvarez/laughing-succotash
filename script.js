@@ -80,7 +80,7 @@ logForm.addEventListener('submit', function (e) {
 		logForm.style.display = "none";
 
 		document.querySelector('.welcomePanel #greeting').innerHTML = "Welcome, " + username.value + "!";
-        document.querySelector('.cardFooter').innerHTML = "Time logged in: " + time;
+        	document.querySelector('.cardFooter').innerHTML = "Time logged in: " + time;
 
 	}
 	else {
