@@ -18,11 +18,14 @@ function checkIfUserExists(username, usernameAndPasswords) {
 		return true
 	}
 }
-function validateUserNameAndPassword(username, password, usernameAndPasswords,) {
-	if(usernameAndPasswords.hasOwnProperty(username) && usernameAndPasswords[username] == password) {
-		return true;
-	}
+function validateUserNameAndPassword(username, password, usernameAndPasswords) {
+    if (usernameAndPasswords.hasOwnProperty(username) && usernameAndPasswords[username] === password) {
+        return true;
+    } else {
+        return false;
+    }
 }
+
 
 // PASSWORD FUNCTION
 function validatePassword(password) {
