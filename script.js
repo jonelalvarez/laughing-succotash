@@ -25,7 +25,7 @@ function validateUserNameAndPassword(username, password, usernameAndPasswords,) 
 	}
 }
 
-// PASSWORD FUNCTION
+// VALIDATE PASSWORD
 function validatePassword(password) {
     // FOR LENGTH
     if (password.length < 8) {
@@ -46,35 +46,32 @@ function validatePassword(password) {
 }
 
 regForm.addEventListener('submit', function (e) {
-	e.preventDefault();
+    e.preventDefault();
 
-	if (usernameReg.value.length == 0 || passwordReg.value.length == 0) {
+    if (usernameReg.value.length == 0 || passwordReg.value.length == 0) {
         alert("Fill out all the forms first");
         return;
     }
 
-	// PASSWORD ALERT
+    // PASSWORD ALERT
     if (!validatePassword(passwordReg.value)) {
         alert("Password must be at least 8 characters long, contain both uppercase and lowercase letters, and not consist only of integers");
         return;
     }
 
-	else {
-		if (checkIfUserExists(usernameReg.value, usernameAndPasswords)) {
-			alert('Username is already taken');
-		}
-		else {
+    
+    if (checkIfUserExists(usernameReg.value, usernameAndPasswords)) {
+        alert('Username is already taken');
+    } else {
+        
+        usernameAndPasswords[usernameReg.value] = passwordReg.value;
+        console.log(usernameAndPasswords);
 
-			usernameAndPasswords[usernameReg.value] = passwordReg.value;
-			console.log(usernameAndPasswords);
-
-			logForm.style.display = "block";
-			regForm.style.display = "none";
-
-		}
-	}
-
-})
+        
+        logForm.style.display = "block";
+        regForm.style.display = "none";
+    }
+});
 
 logForm.addEventListener('submit', function (e) {
 
