@@ -18,14 +18,12 @@ function checkIfUserExists(username, usernameAndPasswords) {
 		return true
 	}
 }
-function validateUserNameAndPassword(username, password, usernameAndPasswords) {
-    if (usernameAndPasswords.hasOwnProperty(username) && usernameAndPasswords[username] === password) {
-        return true;
-    } else {
-        return false;
-    }
-}
 
+function validateUserNameAndPassword(username, password, usernameAndPasswords,) {
+	if(usernameAndPasswords.hasOwnProperty(username) && usernameAndPasswords[username] == password) {
+		return true;
+	}
+}
 
 // PASSWORD FUNCTION
 function validatePassword(password) {
@@ -50,15 +48,15 @@ function validatePassword(password) {
 regForm.addEventListener('submit', function (e) {
 	e.preventDefault();
 
-	if(usernameReg.value.length == 0 || passwordReg.value.length == 0) {
-		alert("Fill out all the forms first");
-	}
+	if (usernameReg.value.length == 0 || passwordReg.value.length == 0) {
+        alert("Fill out all the forms first");
+        return;
+    }
 
-    // PASSWORD ALERT
-    else
-        if (!validatePassword(passwordReg.value)) {
-            alert("Password must be at least 8 characters long, contain both uppercase and lowercase letters, and not consist only of integers");
-            return;
+	// PASSWORD ALERT
+    if (!validatePassword(passwordReg.value)) {
+        alert("Password must be at least 8 characters long, contain both uppercase and lowercase letters, and not consist only of integers");
+        return;
     }
 
 	else {
